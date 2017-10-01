@@ -3,7 +3,7 @@
   <PropertyGroup>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
 
-    <TargetFrameworks Condition=" '$(TargetFrameworks)' == '' ">net45;net40-client;net35;netstandard2.0</TargetFrameworks>
+    <TargetFrameworks Condition=" '$(TargetFrameworks)' == '' ">net45;net40-client;net35-client;netstandard2.0</TargetFrameworks>
 
     <Title>NLog</Title>
     <Company>NLog</Company>
@@ -48,7 +48,7 @@
     <DefineConstants>$(DefineConstants);NET4_0;WCF_SUPPORTED</DefineConstants>
   </PropertyGroup>
   
-  <PropertyGroup Condition=" '$(TargetFramework)' == 'net35' ">
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'net35-client' ">
     <Title>NLog for .NET Framework 3.5</Title>
     <DefineConstants>$(DefineConstants);NET3_5;WCF_SUPPORTED</DefineConstants>
   </PropertyGroup>
@@ -138,7 +138,7 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net35' ">
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net35-client' ">
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
