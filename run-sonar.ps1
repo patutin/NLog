@@ -28,7 +28,7 @@ if ($env:APPVEYOR_REPO_NAME -eq $github) {
 
     choco install "msbuild-sonarqube-runner" -y
 
-    if ($preview) {
+    if ($env:APPVEYOR_PULL_REQUEST_NUMBER) {
         Write-Output "Sonar: Running Sonar in preview mode for PR $env:APPVEYOR_PULL_REQUEST_NUMBER"
         MSBuild.SonarQube.Runner.exe begin /k:"$sonarQubeId" /d:"sonar.host.url=https://sonarqube.com" /d:"sonar.login=$env:sonar_token" /d:"sonar.analysis.mode=preview" /d:"sonar.github.pullRequest=$env:APPVEYOR_PULL_REQUEST_NUMBER" /d:"sonar.github.repository=$github" /d:"sonar.github.oauth=$env:github_auth_token" 
     }
